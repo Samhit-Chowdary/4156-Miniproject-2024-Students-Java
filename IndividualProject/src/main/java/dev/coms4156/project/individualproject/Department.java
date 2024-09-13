@@ -66,7 +66,9 @@ public class Department implements Serializable {
    * Decreases the number of majors in the department by one if it's greater than zero.
    */
   public void dropPersonFromMajor() {
-    numberOfMajors--;
+    if (numberOfMajors > 0) {
+      numberOfMajors--;
+    }
   }
 
   /**
