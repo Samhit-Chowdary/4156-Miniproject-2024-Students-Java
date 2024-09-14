@@ -113,14 +113,14 @@ public class RouteControllerUnitTests {
 
   @Test
   public void getMajorCtFromDeptDepartmentNotFoundTest() {
-    ResponseEntity<?> responseEntity = testRouteController.getMajorCtFromDept("COMS1");
+    ResponseEntity<?> responseEntity = testRouteController.getMajorCountFromDept("COMS1");
     assertEquals("Department Not Found", responseEntity.getBody());
     assertEquals(HttpStatus.NOT_FOUND, responseEntity.getStatusCode());
   }
 
   @Test
   public void getMajorCtFromDeptSuccessTest() {
-    ResponseEntity<?> responseEntity = testRouteController.getMajorCtFromDept("COMS");
+    ResponseEntity<?> responseEntity = testRouteController.getMajorCountFromDept("COMS");
     assertEquals("There are: 2700 majors in the department", responseEntity.getBody());
     assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
   }

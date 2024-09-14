@@ -142,7 +142,8 @@ public class RouteController {
    *                     indicating the proper response.
    */
   @GetMapping(value = "/getMajorCountFromDept", produces = MediaType.APPLICATION_JSON_VALUE)
-  public ResponseEntity<?> getMajorCtFromDept(@RequestParam(value = "deptCode") String deptCode) {
+  public ResponseEntity<?> getMajorCountFromDept(
+      @RequestParam(value = "deptCode") String deptCode) {
     try {
       boolean doesDepartmentExists = retrieveDepartment(deptCode).getStatusCode() == HttpStatus.OK;
       if (doesDepartmentExists) {
@@ -295,8 +296,8 @@ public class RouteController {
         coursesMapping = departmentMapping.get(deptCode).getCourseSelection();
 
         Course requestedCourse = coursesMapping.get(Integer.toString(courseCode));
-        return new ResponseEntity<>("The course meets at: "
-                + requestedCourse.getCourseTimeSlot(), HttpStatus.OK);
+        return new ResponseEntity<>(
+            "The course meets at: " + requestedCourse.getCourseTimeSlot(), HttpStatus.OK);
       } else {
         return new ResponseEntity<>("Course Not Found", HttpStatus.NOT_FOUND);
       }
