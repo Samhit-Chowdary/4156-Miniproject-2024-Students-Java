@@ -1,0 +1,31 @@
+Bugs Found:
+
+I fixed all the test cases when writing the unit test cases. didnt find any new ones with pmd check.
+
+File 1) Course.java
+
+1) enrolledStudentCount was initialised to 500 but it should be initialised to 0.
+2) enrollStudent method is missing the check for filled course. added the check and returned true only if enrollStudent is successful.
+3) dropStudent method is missing the check for empty class. added the check and returned true only if drop student is successful.
+4) getCourseLocation method is returning instructor name. returned proper course location
+5) getInstructorName method is returning course location. returned proper course instructor name
+6) isCourseFull method logic is wrong. it should return true if and only if course capacity is equal to the no of students enrolled.
+
+File 2) Department.java
+
+1) getNumberOfMajors method is returning negative of the number of majors. returned the proper value.
+2) getDepartmentChair method is returning "this.departmentChair"(String). removed the double quotes.
+3) dropPersonFromMajor method is missing the check for zero majors. Only dropping the person if there is any.
+4) toString method is returning "result.toString()"(String). removed the double quotes.
+
+File 3) RouteController.java
+
+1) retrieveDepartment method is returning status: ok when department is not found. fixed it to status: not found.
+2) retrieveDepartment method is returning status: not found when the department is found. fixed it to status: ok.
+3) retrieveCourse method is returning status: forbidden when the request successful. fixed it to status: ok.
+4) getMajorCtFromDept method is renamed to getMajorCountFromDept method.
+5) getMajorCountFromDept method is doing negation of the no. of majors returned. fixed it to a proper value.
+6) getMajorCountFromDept method is returning status: forbidden when department is not found. fixed it to status: not found.
+7) findCourseTime method is returning hardcoded "some time" string in the response. fixed it to proper course time slot.
+8) dropStudent method is returning status: bad request when student is not dropped. fixed it to status: not found (because student is a resource is not found).
+9) handleException method is returning status: ok when handling exception. fixed it to status: internal server error.
