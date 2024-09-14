@@ -35,7 +35,7 @@ public class RouteControllerUnitTests {
         assertEquals(HttpStatus.NOT_FOUND, responseEntity.getStatusCode());
     }
 
-    public Department CreateTestDepartment() {
+    public Department createTestDepartment() {
         String[] times = {"11:40-12:55", "4:10-5:25", "10:10-11:25", "2:40-3:55"};
         String[] locations = {"417 IAB", "309 HAV", "301 URIS"};
         Course coms1004 = new Course("Adam Cannon", locations[0], times[0], 400);
@@ -52,7 +52,7 @@ public class RouteControllerUnitTests {
     @Test
     public void retrieveDepartmentDepartmentFoundTest() {
         HashMap<String, Department> mapping = new HashMap<>();
-        mapping.put("COMS", CreateTestDepartment());
+        mapping.put("COMS", createTestDepartment());
         when(fileDatabaseMock.getDepartmentMapping()).thenReturn(mapping);
         String expectedBody = "COMS 1004: \n" +
                 "Instructor: Adam Cannon; Location: 417 IAB; Time: 11:40-12:55\n" +
@@ -67,7 +67,7 @@ public class RouteControllerUnitTests {
     @Test
     public void retrieveCourseCourseNotFoundTest() {
         HashMap<String, Department> mapping = new HashMap<>();
-        mapping.put("COMS", CreateTestDepartment());
+        mapping.put("COMS", createTestDepartment());
         when(fileDatabaseMock.getDepartmentMapping()).thenReturn(mapping);
         ResponseEntity<?> responseEntity = testRouteController.retrieveCourse("COMS", 1005);
         assertEquals("Course Not Found", responseEntity.getBody());
@@ -77,7 +77,7 @@ public class RouteControllerUnitTests {
     @Test
     public void retrieveCourseDepartmentNotFoundTest() {
         HashMap<String, Department> mapping = new HashMap<>();
-        mapping.put("COMS", CreateTestDepartment());
+        mapping.put("COMS", createTestDepartment());
         when(fileDatabaseMock.getDepartmentMapping()).thenReturn(mapping);
         ResponseEntity<?> responseEntity = testRouteController.retrieveCourse("COMS1", 1004);
         assertEquals("Department Not Found", responseEntity.getBody());
@@ -87,7 +87,7 @@ public class RouteControllerUnitTests {
     @Test
     public void retrieveCourseCourseFoundTest() {
         HashMap<String, Department> mapping = new HashMap<>();
-        mapping.put("COMS", CreateTestDepartment());
+        mapping.put("COMS", createTestDepartment());
         when(fileDatabaseMock.getDepartmentMapping()).thenReturn(mapping);
         ResponseEntity<?> responseEntity = testRouteController.retrieveCourse("COMS", 1004);
         String expectedResponse = "\n" +
@@ -100,7 +100,7 @@ public class RouteControllerUnitTests {
     @Test
     public void isCourseFullCourseNotFoundTest() {
         HashMap<String, Department> mapping = new HashMap<>();
-        mapping.put("COMS", CreateTestDepartment());
+        mapping.put("COMS", createTestDepartment());
         when(fileDatabaseMock.getDepartmentMapping()).thenReturn(mapping);
         ResponseEntity<?> responseEntity = testRouteController.isCourseFull("COMS", 1005);
         assertEquals("Course Not Found", responseEntity.getBody());
@@ -110,7 +110,7 @@ public class RouteControllerUnitTests {
     @Test
     public void isCourseFullCourseFoundNotFullTest() {
         HashMap<String, Department> mapping = new HashMap<>();
-        mapping.put("COMS", CreateTestDepartment());
+        mapping.put("COMS", createTestDepartment());
         when(fileDatabaseMock.getDepartmentMapping()).thenReturn(mapping);
         ResponseEntity<?> responseEntity = testRouteController.isCourseFull("COMS", 1004);
         assertEquals(false, responseEntity.getBody());
@@ -120,7 +120,7 @@ public class RouteControllerUnitTests {
     @Test
     public void isCourseFullCourseFoundFullTest() {
         HashMap<String, Department> mapping = new HashMap<>();
-        mapping.put("COMS", CreateTestDepartment());
+        mapping.put("COMS", createTestDepartment());
         when(fileDatabaseMock.getDepartmentMapping()).thenReturn(mapping);
         ResponseEntity<?> responseEntity = testRouteController.isCourseFull("COMS", 3134);
         assertEquals(true, responseEntity.getBody());
@@ -130,7 +130,7 @@ public class RouteControllerUnitTests {
     @Test
     public void getMajorCtFromDeptDepartmentNotFoundTest() {
         HashMap<String, Department> mapping = new HashMap<>();
-        mapping.put("COMS", CreateTestDepartment());
+        mapping.put("COMS", createTestDepartment());
         when(fileDatabaseMock.getDepartmentMapping()).thenReturn(mapping);
         ResponseEntity<?> responseEntity = testRouteController.getMajorCtFromDept("COMS1");
         assertEquals("Department Not Found", responseEntity.getBody());
@@ -140,7 +140,7 @@ public class RouteControllerUnitTests {
     @Test
     public void getMajorCtFromDeptSuccessTest() {
         HashMap<String, Department> mapping = new HashMap<>();
-        mapping.put("COMS", CreateTestDepartment());
+        mapping.put("COMS", createTestDepartment());
         when(fileDatabaseMock.getDepartmentMapping()).thenReturn(mapping);
         ResponseEntity<?> responseEntity = testRouteController.getMajorCtFromDept("COMS");
         assertEquals("There are: 2700 majors in the department", responseEntity.getBody());
@@ -150,7 +150,7 @@ public class RouteControllerUnitTests {
     @Test
     public void identifyDeptChairDepartmentNotFoundTest() {
         HashMap<String, Department> mapping = new HashMap<>();
-        mapping.put("COMS", CreateTestDepartment());
+        mapping.put("COMS", createTestDepartment());
         when(fileDatabaseMock.getDepartmentMapping()).thenReturn(mapping);
         ResponseEntity<?> responseEntity = testRouteController.identifyDeptChair("COMS1");
         assertEquals("Department Not Found", responseEntity.getBody());
@@ -160,7 +160,7 @@ public class RouteControllerUnitTests {
     @Test
     public void identifyDeptChairSuccessTest() {
         HashMap<String, Department> mapping = new HashMap<>();
-        mapping.put("COMS", CreateTestDepartment());
+        mapping.put("COMS", createTestDepartment());
         when(fileDatabaseMock.getDepartmentMapping()).thenReturn(mapping);
         ResponseEntity<?> responseEntity = testRouteController.identifyDeptChair("COMS");
         assertEquals("Luca Carloni is the department chair.", responseEntity.getBody());
@@ -170,7 +170,7 @@ public class RouteControllerUnitTests {
     @Test
     public void findCourseLocationCourseNotFoundTest() {
         HashMap<String, Department> mapping = new HashMap<>();
-        mapping.put("COMS", CreateTestDepartment());
+        mapping.put("COMS", createTestDepartment());
         when(fileDatabaseMock.getDepartmentMapping()).thenReturn(mapping);
         ResponseEntity<?> responseEntity = testRouteController.findCourseLocation("COMS", 1005);
         assertEquals("Course Not Found", responseEntity.getBody());
@@ -180,7 +180,7 @@ public class RouteControllerUnitTests {
     @Test
     public void findCourseLocationSuccessTest() {
         HashMap<String, Department> mapping = new HashMap<>();
-        mapping.put("COMS", CreateTestDepartment());
+        mapping.put("COMS", createTestDepartment());
         when(fileDatabaseMock.getDepartmentMapping()).thenReturn(mapping);
         ResponseEntity<?> responseEntity = testRouteController.findCourseLocation("COMS", 1004);
         assertEquals("417 IAB is where the course is located.", responseEntity.getBody());
@@ -190,7 +190,7 @@ public class RouteControllerUnitTests {
     @Test
     public void findCourseInstructorCourseNotFoundTest() {
         HashMap<String, Department> mapping = new HashMap<>();
-        mapping.put("COMS", CreateTestDepartment());
+        mapping.put("COMS", createTestDepartment());
         when(fileDatabaseMock.getDepartmentMapping()).thenReturn(mapping);
         ResponseEntity<?> responseEntity = testRouteController.findCourseInstructor("COMS", 1005);
         assertEquals("Course Not Found", responseEntity.getBody());
@@ -200,7 +200,7 @@ public class RouteControllerUnitTests {
     @Test
     public void findCourseInstructorSuccessTest() {
         HashMap<String, Department> mapping = new HashMap<>();
-        mapping.put("COMS", CreateTestDepartment());
+        mapping.put("COMS", createTestDepartment());
         when(fileDatabaseMock.getDepartmentMapping()).thenReturn(mapping);
         ResponseEntity<?> responseEntity = testRouteController.findCourseInstructor("COMS", 1004);
         assertEquals("Adam Cannon is the instructor for the course.", responseEntity.getBody());
@@ -210,7 +210,7 @@ public class RouteControllerUnitTests {
     @Test
     public void findCourseTimeCourseNotFoundTest() {
         HashMap<String, Department> mapping = new HashMap<>();
-        mapping.put("COMS", CreateTestDepartment());
+        mapping.put("COMS", createTestDepartment());
         when(fileDatabaseMock.getDepartmentMapping()).thenReturn(mapping);
         ResponseEntity<?> responseEntity = testRouteController.findCourseTime("COMS", 1005);
         assertEquals("Course Not Found", responseEntity.getBody());
@@ -220,7 +220,7 @@ public class RouteControllerUnitTests {
     @Test
     public void findCourseTimeSuccessTest() {
         HashMap<String, Department> mapping = new HashMap<>();
-        mapping.put("COMS", CreateTestDepartment());
+        mapping.put("COMS", createTestDepartment());
         when(fileDatabaseMock.getDepartmentMapping()).thenReturn(mapping);
         ResponseEntity<?> responseEntity = testRouteController.findCourseTime("COMS", 1004);
         assertEquals("The course meets at: 11:40-12:55", responseEntity.getBody());
@@ -230,7 +230,7 @@ public class RouteControllerUnitTests {
     @Test
     public void addMajorToDeptDepartmentNotFoundTest() {
         HashMap<String, Department> mapping = new HashMap<>();
-        mapping.put("COMS", CreateTestDepartment());
+        mapping.put("COMS", createTestDepartment());
         when(fileDatabaseMock.getDepartmentMapping()).thenReturn(mapping);
         ResponseEntity<?> responseEntity = testRouteController.addMajorToDept("COMS1");
         assertEquals("Department Not Found", responseEntity.getBody());
@@ -241,7 +241,7 @@ public class RouteControllerUnitTests {
     @Test
     public void addMajorToDeptSuccessTest() {
         HashMap<String, Department> mapping = new HashMap<>();
-        mapping.put("COMS", CreateTestDepartment());
+        mapping.put("COMS", createTestDepartment());
         when(fileDatabaseMock.getDepartmentMapping()).thenReturn(mapping);
         ResponseEntity<?> responseEntity = testRouteController.addMajorToDept("COMS");
         assertEquals("Attribute was updated successfully", responseEntity.getBody());
