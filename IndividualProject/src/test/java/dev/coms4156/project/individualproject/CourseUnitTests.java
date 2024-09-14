@@ -36,6 +36,7 @@ public class CourseUnitTests {
 
   @Test
   public void isCourseFullClass_Full_Test() {
+    testCourse.setEnrolledStudentCount(250);
     assertTrue(testCourse.isCourseFull());
   }
 
