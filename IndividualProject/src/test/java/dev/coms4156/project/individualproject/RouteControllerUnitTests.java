@@ -96,7 +96,6 @@ public class RouteControllerUnitTests {
         assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
     }
 
-    //TODO: check course or department
     @Test
     public void isCourseFullCourseNotFoundTest() {
         HashMap<String, Department> mapping = new HashMap<>();
@@ -237,7 +236,6 @@ public class RouteControllerUnitTests {
         assertEquals(HttpStatus.NOT_FOUND, responseEntity.getStatusCode());
     }
 
-    //TODO: check how to check the increase in majors
     @Test
     public void addMajorToDeptSuccessTest() {
         HashMap<String, Department> mapping = new HashMap<>();
