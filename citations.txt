@@ -1,0 +1,4 @@
+1) https://docs.spring.io/spring-boot/index.html
+2) https://site.mockito.org/
+3) https://pmd.github.io/
+4) https://google.github.io/styleguide/javaguide.html
