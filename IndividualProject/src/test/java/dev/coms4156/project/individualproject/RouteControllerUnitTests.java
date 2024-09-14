@@ -27,7 +27,7 @@ public class RouteControllerUnitTests {
     }
 
     @Test
-    public void retrieveDepartment_DepartmentNotFound_Test() {
+    public void retrieveDepartmentDepartmentNotFoundTest() {
         HashMap<String, Department> mapping = new HashMap<>();
         when(fileDatabaseMock.getDepartmentMapping()).thenReturn(mapping);
         ResponseEntity<?> responseEntity = testRouteController.retrieveDepartment("COMS");
@@ -50,7 +50,7 @@ public class RouteControllerUnitTests {
     }
 
     @Test
-    public void retrieveDepartment_DepartmentFound_Test() {
+    public void retrieveDepartmentDepartmentFoundTest() {
         HashMap<String, Department> mapping = new HashMap<>();
         mapping.put("COMS", CreateTestDepartment());
         when(fileDatabaseMock.getDepartmentMapping()).thenReturn(mapping);
@@ -65,7 +65,7 @@ public class RouteControllerUnitTests {
     }
 
     @Test
-    public void retrieveCourse_CourseNotFound_Test() {
+    public void retrieveCourseCourseNotFoundTest() {
         HashMap<String, Department> mapping = new HashMap<>();
         mapping.put("COMS", CreateTestDepartment());
         when(fileDatabaseMock.getDepartmentMapping()).thenReturn(mapping);
@@ -75,7 +75,7 @@ public class RouteControllerUnitTests {
     }
 
     @Test
-    public void retrieveCourse_DepartmentNotFound_Test() {
+    public void retrieveCourseDepartmentNotFoundTest() {
         HashMap<String, Department> mapping = new HashMap<>();
         mapping.put("COMS", CreateTestDepartment());
         when(fileDatabaseMock.getDepartmentMapping()).thenReturn(mapping);
@@ -85,7 +85,7 @@ public class RouteControllerUnitTests {
     }
 
     @Test
-    public void retrieveCourse_CourseFound_Test() {
+    public void retrieveCourseCourseFoundTest() {
         HashMap<String, Department> mapping = new HashMap<>();
         mapping.put("COMS", CreateTestDepartment());
         when(fileDatabaseMock.getDepartmentMapping()).thenReturn(mapping);
@@ -98,7 +98,7 @@ public class RouteControllerUnitTests {
 
     //TODO: check course or department
     @Test
-    public void isCourseFull_CourseNotFound_Test() {
+    public void isCourseFullCourseNotFoundTest() {
         HashMap<String, Department> mapping = new HashMap<>();
         mapping.put("COMS", CreateTestDepartment());
         when(fileDatabaseMock.getDepartmentMapping()).thenReturn(mapping);
@@ -108,7 +108,7 @@ public class RouteControllerUnitTests {
     }
 
     @Test
-    public void isCourseFull_CourseFoundNotFull_Test() {
+    public void isCourseFullCourseFoundNotFullTest() {
         HashMap<String, Department> mapping = new HashMap<>();
         mapping.put("COMS", CreateTestDepartment());
         when(fileDatabaseMock.getDepartmentMapping()).thenReturn(mapping);
@@ -118,7 +118,7 @@ public class RouteControllerUnitTests {
     }
 
     @Test
-    public void isCourseFull_CourseFoundFull_Test() {
+    public void isCourseFullCourseFoundFullTest() {
         HashMap<String, Department> mapping = new HashMap<>();
         mapping.put("COMS", CreateTestDepartment());
         when(fileDatabaseMock.getDepartmentMapping()).thenReturn(mapping);
@@ -128,7 +128,7 @@ public class RouteControllerUnitTests {
     }
 
     @Test
-    public void getMajorCtFromDept_DepartmentNotFound_Test() {
+    public void getMajorCtFromDeptDepartmentNotFoundTest() {
         HashMap<String, Department> mapping = new HashMap<>();
         mapping.put("COMS", CreateTestDepartment());
         when(fileDatabaseMock.getDepartmentMapping()).thenReturn(mapping);
@@ -138,7 +138,7 @@ public class RouteControllerUnitTests {
     }
 
     @Test
-    public void getMajorCtFromDept_Success_Test() {
+    public void getMajorCtFromDeptSuccessTest() {
         HashMap<String, Department> mapping = new HashMap<>();
         mapping.put("COMS", CreateTestDepartment());
         when(fileDatabaseMock.getDepartmentMapping()).thenReturn(mapping);
@@ -148,7 +148,7 @@ public class RouteControllerUnitTests {
     }
 
     @Test
-    public void identifyDeptChair_DepartmentNotFound_Test() {
+    public void identifyDeptChairDepartmentNotFoundTest() {
         HashMap<String, Department> mapping = new HashMap<>();
         mapping.put("COMS", CreateTestDepartment());
         when(fileDatabaseMock.getDepartmentMapping()).thenReturn(mapping);
@@ -158,7 +158,7 @@ public class RouteControllerUnitTests {
     }
 
     @Test
-    public void identifyDeptChair_Success_Test() {
+    public void identifyDeptChairSuccessTest() {
         HashMap<String, Department> mapping = new HashMap<>();
         mapping.put("COMS", CreateTestDepartment());
         when(fileDatabaseMock.getDepartmentMapping()).thenReturn(mapping);
@@ -168,7 +168,7 @@ public class RouteControllerUnitTests {
     }
 
     @Test
-    public void findCourseLocation_CourseNotFound_Test() {
+    public void findCourseLocationCourseNotFoundTest() {
         HashMap<String, Department> mapping = new HashMap<>();
         mapping.put("COMS", CreateTestDepartment());
         when(fileDatabaseMock.getDepartmentMapping()).thenReturn(mapping);
@@ -178,7 +178,7 @@ public class RouteControllerUnitTests {
     }
 
     @Test
-    public void findCourseLocation_Success_Test() {
+    public void findCourseLocationSuccessTest() {
         HashMap<String, Department> mapping = new HashMap<>();
         mapping.put("COMS", CreateTestDepartment());
         when(fileDatabaseMock.getDepartmentMapping()).thenReturn(mapping);
@@ -188,7 +188,7 @@ public class RouteControllerUnitTests {
     }
 
     @Test
-    public void findCourseInstructor_CourseNotFound_Test() {
+    public void findCourseInstructorCourseNotFoundTest() {
         HashMap<String, Department> mapping = new HashMap<>();
         mapping.put("COMS", CreateTestDepartment());
         when(fileDatabaseMock.getDepartmentMapping()).thenReturn(mapping);
@@ -198,7 +198,7 @@ public class RouteControllerUnitTests {
     }
 
     @Test
-    public void findCourseInstructor_Success_Test() {
+    public void findCourseInstructorSuccessTest() {
         HashMap<String, Department> mapping = new HashMap<>();
         mapping.put("COMS", CreateTestDepartment());
         when(fileDatabaseMock.getDepartmentMapping()).thenReturn(mapping);
@@ -208,7 +208,7 @@ public class RouteControllerUnitTests {
     }
 
     @Test
-    public void findCourseTime_CourseNotFound_Test() {
+    public void findCourseTimeCourseNotFoundTest() {
         HashMap<String, Department> mapping = new HashMap<>();
         mapping.put("COMS", CreateTestDepartment());
         when(fileDatabaseMock.getDepartmentMapping()).thenReturn(mapping);
@@ -218,7 +218,7 @@ public class RouteControllerUnitTests {
     }
 
     @Test
-    public void findCourseTime_Success_Test() {
+    public void findCourseTimeSuccessTest() {
         HashMap<String, Department> mapping = new HashMap<>();
         mapping.put("COMS", CreateTestDepartment());
         when(fileDatabaseMock.getDepartmentMapping()).thenReturn(mapping);
@@ -228,7 +228,7 @@ public class RouteControllerUnitTests {
     }
 
     @Test
-    public void addMajorToDept_DepartmentNotFound_Test() {
+    public void addMajorToDeptDepartmentNotFoundTest() {
         HashMap<String, Department> mapping = new HashMap<>();
         mapping.put("COMS", CreateTestDepartment());
         when(fileDatabaseMock.getDepartmentMapping()).thenReturn(mapping);
@@ -239,7 +239,7 @@ public class RouteControllerUnitTests {
 
     //TODO: check how to check the increase in majors
     @Test
-    public void addMajorToDept_Success_Test() {
+    public void addMajorToDeptSuccessTest() {
         HashMap<String, Department> mapping = new HashMap<>();
         mapping.put("COMS", CreateTestDepartment());
         when(fileDatabaseMock.getDepartmentMapping()).thenReturn(mapping);

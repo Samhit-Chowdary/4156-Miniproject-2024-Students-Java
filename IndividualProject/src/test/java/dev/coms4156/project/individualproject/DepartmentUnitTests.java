@@ -23,13 +23,21 @@ public class DepartmentUnitTests {
     }
 
     @Test
-    public void toString_Test() {
+    public void toStringTest() {
         String expectedResult =
             "COMS Adv Software Engineering: \n"
                 + "Instructor: Peter Lose; Location: 418 IAB; Time: 12:30-13:55\n"
                 + "COMS Software Engineering: \n"
                 + "Instructor: Griffin Newbold; Location: 417 IAB; Time: 11:40-12:55\n";
         assertEquals(expectedResult, testDepartment.toString());
+    }
+
+    @Test
+    public void dropPersonFromMajorTest() {
+        testDepartment.dropPersonFromMajor();
+        assertEquals(0, testDepartment.getNumberOfMajors());
+        testDepartment.dropPersonFromMajor();
+        assertEquals(0, testDepartment.getNumberOfMajors());
     }
 
     public static Department testDepartment;

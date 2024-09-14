@@ -64,6 +64,14 @@ public class Course implements Serializable {
     return this.courseTimeSlot;
   }
 
+  public int getEnrolledStudentCount() {
+    return enrolledStudentCount;
+  }
+
+  public int getEnrollmentCapacity() {
+    return enrollmentCapacity;
+  }
+
   /**
    * Returns a string representation of the course, including its Instructor name,
    * location and course slot.

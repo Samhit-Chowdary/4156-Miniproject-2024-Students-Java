@@ -29,15 +29,40 @@ public class CourseUnitTests {
   }
 
   @Test
-  public void isCourseFullClass_NotFull_Test() {
+  public void isCourseFullClassNotFullTest() {
     testCourse.setEnrolledStudentCount(200);
     assertFalse(testCourse.isCourseFull());
   }
 
   @Test
-  public void isCourseFullClass_Full_Test() {
+  public void isCourseFullClassFullTest() {
     testCourse.setEnrolledStudentCount(250);
     assertTrue(testCourse.isCourseFull());
+  }
+
+  @Test
+  public void enrollStudentSuccessTest() {
+    assertTrue(testCourse.enrollStudent());
+  }
+
+  @Test
+  public void enrollStudentClassFullTest() {
+    testCourse.setEnrolledStudentCount(250);
+    assertFalse(testCourse.enrollStudent());
+  }
+
+  @Test
+  public void dropStudentSuccessTest() {
+    testCourse.setEnrolledStudentCount(250);
+    assertTrue(testCourse.dropStudent());
+    assertEquals(249, testCourse.getEnrolledStudentCount());
+  }
+
+  @Test
+  public void dropStudentClassEmptyTest() {
+    testCourse.setEnrolledStudentCount(0);
+    assertFalse(testCourse.dropStudent());
+    assertEquals(0, testCourse.getEnrolledStudentCount());
   }
 
   @AfterEach
