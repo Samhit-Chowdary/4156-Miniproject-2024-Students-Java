@@ -18,4 +18,4 @@
 ```
 * I ran the pmd check with the command: "mvn pmd::check".
 * I ran the style check with the command: "mvn checkstyle:check".
-* Current Unit Test Coverage: 55%.
+* Current Unit Test Coverage: 60%.
