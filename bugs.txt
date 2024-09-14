@@ -1,5 +1,7 @@
 Bugs Found:
 
+I fixed all the test cases when writing the unit test cases. didnt find any new ones with pmd check.
+
 File 1) Course.java
 
 1) enrolledStudentCount was initialised to 500 but it should be initialised to 0.
@@ -21,8 +23,9 @@ File 3) RouteController.java
 1) retrieveDepartment method is returning status: ok when department is not found. fixed it to status: not found.
 2) retrieveDepartment method is returning status: not found when the department is found. fixed it to status: ok.
 3) retrieveCourse method is returning status: forbidden when the request successful. fixed it to status: ok.
-4) getMajorCountFromDept method is doing negation of the no. of majors returned. fixed it to a proper value.
-5) getMajorCountFromDept method is returning status: forbidden when department is not found. fixed it to status: not found.
-6) findCourseTime method is returning hardcoded "some time" string in the response. fixed it to proper course time slot.
-7) dropStudent method is returning status: bad request when student is not dropped. fixed it to status: not found (because student is a resource is not found).
-8) handleException method is returning status: ok when handling exception. fixed it to status: internal server error.
+4) getMajorCtFromDept method is renamed to getMajorCountFromDept method.
+5) getMajorCountFromDept method is doing negation of the no. of majors returned. fixed it to a proper value.
+6) getMajorCountFromDept method is returning status: forbidden when department is not found. fixed it to status: not found.
+7) findCourseTime method is returning hardcoded "some time" string in the response. fixed it to proper course time slot.
+8) dropStudent method is returning status: bad request when student is not dropped. fixed it to status: not found (because student is a resource is not found).
+9) handleException method is returning status: ok when handling exception. fixed it to status: internal server error.
